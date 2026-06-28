@@ -1,0 +1,68 @@
+@import "colors.rasi"
+
+* {
+    background-color: transparent;
+    text-color:       @foreground;
+    font:             "JetBrainsMono Nerd Font 14";
+}
+
+window {
+    width:            520px;
+    background-color: @background;
+    border-radius:    0;
+    padding:          16px;
+}
+
+mainbox {
+    spacing:  12px;
+    children: [ listview, inputbar ];
+}
+
+inputbar {
+    background-color: @background-alt;
+    border-radius:    0;
+    padding:          10px 14px;
+    spacing:          10px;
+    children:         [ prompt, entry ];
+}
+
+prompt {
+    text-color: @accent;
+}
+
+configuration {
+    display-drun: ">";
+}
+
+listview { lines: 7; scrollbar: false; spacing: 3px; }
+
+element {
+    orientation:   horizontal;
+    children:      [ element-text, element-icon ];
+    padding:       9px 12px;
+    border-radius: 0;
+    spacing:       10px;
+    background-color: transparent;
+}
+
+element normal normal {
+    background-color: transparent;
+    text-color:       @foreground;
+}
+
+element selected normal {
+    background-color: @accent;
+    text-color:       @accent-fg;
+}
+
+element-text {
+    expand:         true;
+    vertical-align: 0.5;
+    text-color:     inherit;
+}
+
+element-icon {
+    size:           1.2em;
+    vertical-align: 0.5;
+    text-color:     inherit;
+}

@@ -1,0 +1,4 @@
+configuration {
+    kb-move-front: "";
+    kb-clear-line: "Control+a";
+}

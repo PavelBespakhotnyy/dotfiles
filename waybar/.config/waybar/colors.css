@@ -1,0 +1,11 @@
+@define-color bg        #091313;
+@define-color bg-alt    #050d0d;
+@define-color box       #141F1E;
+@define-color fg        #cfe0dd;
+@define-color muted     #5a6e6c;
+@define-color accent    #9BD0CC;
+@define-color active    #9BD0CC;
+@define-color line      #243534;
+@define-color good      #8fcfa1;
+@define-color warning   #e0b878;
+@define-color critical  #e06c6c;

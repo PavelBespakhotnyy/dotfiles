@@ -1,0 +1,145 @@
+@import "colors.css";
+* {
+  font-family: "Maple Mono NF", "Iosevka Nerd Font Mono", monospace;
+  font-size: 16px;
+  min-height: 0;
+  border: none;
+}
+window#waybar {
+  background: @bg;
+  color: @fg;
+}
+#custom-logo,
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#power-profiles-daemon,
+#custom-power {
+  font-family: "Symbols Nerd Font Mono", "Iosevka Nerd Font Mono", monospace;
+}
+#custom-logo {
+  font-size: 22px;
+  color: @accent;
+  margin: 16px 0 10px 0;
+}
+#workspaces {
+  background: @box;
+  border-radius: 150;
+  margin: 6px 8px;
+  padding: 8px 0;
+}
+#workspaces button {
+  color: @accent;
+  font-size: 22px;
+  min-height: 36px;
+  padding: 0;
+  margin: 4px 8px;
+  border-radius: 50;
+  transition: none;
+}
+#workspaces button label {
+  font-size: 18px;
+}
+#workspaces button.empty {
+  color: @muted;
+}
+#workspaces button:hover {
+  background: @box;
+  color: @fg;
+}
+#workspaces button.active {
+  color: @bg;
+  background: @active;
+}
+#workspaces button.active label {
+  font-size: 28px;
+}
+#window {
+  color: @fg;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: -80px;
+}
+#tray {
+  background: @box;
+  border-radius: 50;
+  padding: 10px 12px;
+  margin: 6px 8px;
+}
+#clock.day {
+  color: @fg;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 6px 0 0 0;
+}
+#clock.date {
+  color: @fg;
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin: 0;
+}
+#custom-separator {
+  margin: 2px 10px 2px 10px;
+  padding: 0;
+  min-height: 1px;
+}
+#clock {
+  font-weight: 700;
+  color: @fg;
+  font-size: 19px;
+  margin: 2px 0 8px 0;
+}
+#quick {
+  background: @box;
+  border-radius: 50;
+  margin: 6px 8px;
+  padding: 10px 12px;
+}
+#pulseaudio,
+#network,
+#bluetooth,
+#battery {
+  color: @fg;
+  font-size: 21px;
+  padding: 6px 0;
+}
+#language {
+  font-size: 19px;
+  font-weight: 800;
+  color: @fg;
+  padding: 2px 0;
+  margin: 2px 0 6px 0;
+}
+#pulseaudio.muted {
+  color: @muted;
+}
+#network.disconnected,
+#bluetooth.off,
+#bluetooth.disabled {
+  color: @muted;
+}
+#battery.warning {
+  color: @warning;
+}
+#battery.critical {
+  color: @critical;
+}
+#custom-power {
+  color: @critical;
+  font-size: 22px;
+  margin: 8px 14px 14px 14px;
+  padding: 6px 0;
+}
+#custom-power:hover {
+  background: @critical;
+  color: @bg;
+  border-radius: 50;
+}
+#power-profiles-daemon {
+  color: @fg;
+  font-size: 20px;
+  padding: 6px 0;
+}
