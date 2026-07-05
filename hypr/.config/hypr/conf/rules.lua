@@ -56,3 +56,14 @@ hl.window_rule({
     size   = {1000, 700},
     center = true,
 })
+
+hl.window_rule({
+    name = "xwayland-video-bridge-fixes",
+    match = { class = "xwaylandvideobridge" },
+
+    no_initial_focus = true,
+    no_focus = true,
+    no_anim = true,
+    no_blur = true,
+    opacity = 0.0
+})

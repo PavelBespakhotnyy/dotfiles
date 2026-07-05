@@ -20,17 +20,17 @@ PROMPT_COMMAND=__prompt
 PS1="\[${c_path}\]\w\[${c_reset}\] \[${c_prompt}\]>\[${c_reset}\] "
 
 if command -v eza &>/dev/null; then
-  alias ls='eza -lh  --group-directories-first --icons=auto --git'
-  alias ll='eza -lh  --group-directories-first --icons=auto --git'
-  alias la='eza -lah --group-directories-first --icons=auto --git'
+  alias ls='eza -1 --group-directories-first --icons=auto'
+  alias ll='eza -1 --group-directories-first --icons=auto'
+  alias la='eza -1a --group-directories-first --icons=auto'
   alias lt='eza --tree --level=2 --icons=auto'
-  alias lg='eza --group-directories-first --icons=auto'
+  alias lg='eza -1 --group-directories-first --icons=auto'
 else
-  alias ls='ls -lh  --color=auto --group-directories-first'
-  alias ll='ls -lh  --color=auto --group-directories-first'
-  alias la='ls -lah --color=auto --group-directories-first'
-  alias lt='ls -R   --color=auto'
-  alias lg='ls      --color=auto --group-directories-first'
+  alias ls='ls -1 --color=auto --group-directories-first'
+  alias ll='ls -1 --color=auto --group-directories-first'
+  alias la='ls -1A --color=auto --group-directories-first'
+  alias lt='ls -R --color=auto'
+  alias lg='ls -1 --color=auto --group-directories-first'
 fi
 
 alias grep='grep --color=auto'
@@ -39,4 +39,4 @@ alias ip='ip -color=auto'
 command -v bat &>/dev/null && alias cat='bat --style=plain --paging=never'
 
 alias ..='cd ..'
-alias ...='cd ../..'
+alias ...='cd ../..'export PATH="$HOME/.local/bin:$PATH"

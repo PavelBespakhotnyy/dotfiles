@@ -1,3 +1,5 @@
+tofi
+tofi-debug
 vscodium-bin
 yay
 yay-debug

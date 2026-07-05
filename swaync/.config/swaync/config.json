@@ -1,0 +1,100 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "ignore-gtk-theme": true,
+  "positionX": "right",
+  "positionY": "top",
+  "control-center-margin-top": 0,
+  "control-center-margin-bottom": 0,
+  "control-center-margin-right": 0,
+  "notification-body-image-height": 100,
+  "notification-body-image-width": 200,
+  "timeout": 5,
+  "timeout-low": 5,
+  "timeout-critical": 0,
+  "fit-to-screen": true,
+  "control-center-width": 320,
+  "control-center-height": 650,
+  "notification-window-width": 450,
+  "keyboard-shortcuts": true,
+  "image-visibility": "when-available",
+  "transition-time": 150,
+  "hide-on-clear": true,
+  "hide-on-action": true,
+  "script-fail-notify": true,
+  "text-empty": "No Notifications :(",
+  "widgets": [
+    "buttons-grid",
+    "mpris",
+    "volume",
+    "backlight",
+    "dnd",
+    "title"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "SwayNC",
+      "clear-all-button": true,
+      "button-text": " Clear all"
+    },
+    "mpris": {
+      "blacklist": [
+        "playerctl"
+      ],
+      "autohide": false,
+      "show-album-art": "always",
+      "loop-carousel": true
+    },
+    "backlight": {
+      "label": "󰃟 ",
+      "device": "intel_backlight",
+      "min": 1
+    },
+    "volume": {
+      "label": "󰕾 ",
+      "height": 10,
+      "position": "top-right"
+    },
+    "buttons-grid": {
+      "actions": [
+        {
+          "label": "󰤥",
+          "command": "/home/pavel/.config/swaync/scripts/wifi-toggle.sh",
+          "update-command": "/home/pavel/.config/swaync/scripts/wifi-status.sh",
+          "type": "toggle"
+        },
+        {
+          "label": "󰂯",
+          "command": "/home/pavel/.config/swaync/scripts/bt-toggle.sh",
+          "update-command": "/home/pavel/.config/swaync/scripts/bt-status.sh",
+          "type": "toggle"
+        },
+        {
+          "label": "󰌾",
+          "command": "hyprlock"
+        },
+        {
+          "label": "󰕾",
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+          "type": "toggle"
+        },
+        {
+          "label": "󰗑",
+          "command": "/home/pavel/.config/swaync/scripts/power-cycle.sh"
+        },
+        {
+          "label": "󰍬",
+          "command": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+          "type": "toggle"
+        },
+        {
+          "label": "",
+          "command": "systemctl poweroff"
+        },
+        {
+          "label": "",
+          "command": "systemctl reboot"
+        }
+      ]
+    }
+  }
+}

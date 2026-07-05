@@ -11,6 +11,7 @@ hl.bind(mainMod .. " + Q",      hl.dsp.window.close())
 hl.bind(mainMod .. " + E",      hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + T",      hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + J",      hl.dsp.layout("togglesplit"))   -- dwindle only
+hl.bind(mainMod .. " + N",      hl.dsp.exec_cmd("swaync-client -t -sw"))
 
 -- Workspaces 1-10
 for i = 1, 10 do
