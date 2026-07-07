@@ -1,13 +1,13 @@
-local rounding_corners = 16
+local rounding_corners = 0
 
 hl.config({
     general = {
-        gaps_in  = 4,
-        gaps_out = 8,
+        gaps_in  = 0,
+        gaps_out = 0,
         border_size = 2,
         col = {
-            active_border   = "rgb(6B7280)",
-            inactive_border = "rgb(22262B)",
+            active_border   = "rgb(212121)",
+            inactive_border = "rgb(212121)",
         },
         resize_on_border = false,
         allow_tearing = false,
@@ -16,16 +16,17 @@ hl.config({
     decoration = {
         rounding       = rounding_corners,
         rounding_power = 2,
-        active_opacity   = 0.95,
-        inactive_opacity = 0.95,
+        active_opacity   = 1.0,
+        inactive_opacity = 1.0
+        ,
         shadow = {
-            enabled      = true,
+            enabled      = false,
             range        = 20,
             render_power = 3,
             color        = 0xee1a1a1a,
         },
         blur = {
-            enabled   = true,
+            enabled   = false,
             xray      = false,
             special   = false,
             ignore_opacity = true,

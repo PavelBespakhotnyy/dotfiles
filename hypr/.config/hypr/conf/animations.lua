@@ -1,4 +1,4 @@
-hl.config({ animations = { enabled = true } })
+hl.config({ animations = { enabled = false } })
 
 -- Curves
 hl.curve("specialWorkSwitch", { type = "bezier", points = { {0.05, 0.7}, {0.1, 1}    } })
@@ -9,9 +9,9 @@ hl.curve("overshot",          { type = "bezier", points = { {0.05, 0.9}, {0.1, 1
 hl.curve("liner",             { type = "bezier", points = { {1, 1},      {1, 1}      } })
 
 -- Windows
-hl.animation({ leaf = "windowsIn",   enabled = true, speed = 5, bezier = "emphasizedDecel", style = "popin 80%" })
+hl.animation({ leaf = "windowsIn",   enabled = true, speed = 4, bezier = "emphasizedDecel", style = "popin 80%" })
 hl.animation({ leaf = "windowsOut",  enabled = true, speed = 3, bezier = "emphasizedAccel", style = "popin 80%" })
-hl.animation({ leaf = "windowsMove", enabled = true, speed = 6, bezier = "standard" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 5, bezier = "standard" })
 
 -- Borders
 hl.animation({ leaf = "border",      enabled = true, speed = 3,  bezier = "emphasizedDecel" })

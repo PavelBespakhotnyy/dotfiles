@@ -3,6 +3,6 @@ return {
   fileManager = "thunar",
   menu        = "rofi",
   mainMod     = "SUPER",
-  browser     = "zen-browser",
+  browser     = "firefox",
   editor      = "codium",
 }

@@ -13,7 +13,7 @@
   background: @bg;
   border-radius: 0px;
   padding: 6px;
-  box-shadow: 0 0 15px @accent-shadow;
+  box-shadow: none;
 }
 
 .notification {

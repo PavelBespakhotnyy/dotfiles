@@ -1,9 +1,14 @@
 @import "colors.css";
 * {
-  font-family: "Maple Mono NF", "Iosevka Nerd Font Mono", monospace;
-  font-size: 16px;
+  font-family: "JetBrains Nerd Font Mono", "Maple Mono NF", "Iosevka Nerd Font Mono", monospace;
+  font-size: 18px;
   min-height: 0;
   border: none;
+}
+
+window#waybar {
+  background-color: #282828;
+  border-right: 1px solid #383633;
 }
 
 #pulseaudio,
@@ -15,13 +20,18 @@
   font-family: "Symbols Nerd Font Mono", "Iosevka Nerd Font Mono", monospace;
 }
 #workspaces {
-  padding: 10px 0;
+  background-color: @box;
+}
+#window {
+  color: @fg;
+  font-size: 16px;
+  margin: 8px 0;
 }
 #workspaces button {
+  background-color: #1d2021;
   color: @accent;
   font-size: 22px;
-  padding: 10px 0;
-  margin: 4px 8px;
+  padding: 12px 0;
   border-radius: 0;
   transition: none;
 }
@@ -36,27 +46,25 @@
   color: @fg;
 }
 #workspaces button.active {
+  background-color: #504945;
   color: @accent;
-  margin: 4px 0px 4px 2px;
-  border-right: 3px solid @active;
 }
 #tray {
-  background: @box;
-  border-radius: 50;
-  padding: 10px 6px;
-  margin: 6px 8px;
+  border-radius: 0;
+  padding: 10px 0px;
+  /* margin: 6px 8px; */
 }
 
 #clock {
   font-weight: 700;
   color: @fg;
   font-size: 19px;
-  margin: 2px 0 8px 0;
+  margin: 8px 0 8px 0;
 }
 #quick {
   background: @box;
-  border-radius: 50;
-  margin: 6px 8px;
+  border-radius: 0;
+  /* margin: 6px 8px; */
   padding: 10px 12px;
 }
 #pulseaudio,
@@ -74,12 +82,12 @@
   padding: 2px 0;
   margin: 2px 0 6px 0;
 }
-#battery.warning {
+/* #battery.warning {
   color: @warning;
 }
 #battery.critical {
   color: @critical;
-}
+} */
 #custom-power {
   color: @critical;
   font-size: 22px;

@@ -16,6 +16,7 @@ efibootmgr
 eza
 fastfetch
 file-roller
+firefox
 fish
 git
 grim
@@ -65,6 +66,7 @@ qt6-svg
 qt6-virtualkeyboard
 quickshell
 rofi
+sassc
 sddm
 slurp
 snapper
@@ -79,7 +81,6 @@ telegram-desktop
 thunar
 thunar-archive-plugin
 tmux
-tofi
 ttf-arimo-nerd
 ttf-dejavu
 ttf-iosevka-nerd
@@ -90,7 +91,6 @@ ttf-nerd-fonts-symbols-mono
 ufw
 vim
 vlc
-vscodium-bin
 vulkan-intel
 waybar
 wev
@@ -100,10 +100,7 @@ wpa_supplicant
 xarchiver
 xdg-desktop-portal-hyprland
 xf86-video-intel
-yay
-yay-debug
 yazi
-zen-browser-bin
 zip
 zram-generator
 zsh

@@ -1,6 +1,4 @@
 tofi
-tofi-debug
 vscodium-bin
 yay
-yay-debug
 zen-browser-bin
