@@ -1,0 +1,5 @@
+:root{
+--tab-border-radius: 0px !important; /*  Tab border radius -- Changes the tabs rounding  *//*  Default: 3px  */
+--NavbarWidth: 43; /*  Default values: 36 - 43  */
+--TabsHeight: 30; /*  Minimum: 30  *//*  Default: 36  */
+}
