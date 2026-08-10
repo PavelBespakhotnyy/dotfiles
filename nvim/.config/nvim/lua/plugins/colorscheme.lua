@@ -1,10 +1,14 @@
 return {
-  { "ellisonleao/gruvbox.nvim" },
+	{
+		"w0ng/vim-hybrid",
+		lazy = false,
+		priority = 1000,
+	},
 
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "gruvbox",
-    },
-  },
+	{
+		"LazyVim/LazyVim",
+		opts = {
+			colorscheme = "hybrid",
+		},
+	},
 }
