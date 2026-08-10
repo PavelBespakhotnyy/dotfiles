@@ -1,15 +1,63 @@
 @import "colors.css";
+
 * {
-  font-family: "JetBrains Nerd Font Mono", "Maple Mono NF", "Iosevka Nerd Font Mono", monospace;
-  font-size: 18px;
+  font-family: "Iosevka", "JetBrains Nerd Font Mono", "Maple Mono NF",
+               "Iosevka Nerd Font Mono", monospace;
+  font-size: 14px;
   min-height: 0;
   border: none;
 }
 
 window#waybar {
   background-color: #282828;
-  border-right: 1px solid #383633;
+  border-bottom: 1px solid #383633;
+  min-height: 20px;
 }
+
+/* Workspaces */
+
+#workspaces {
+  background-color: @box;
+  min-height: 20px;
+}
+
+#workspaces button {
+  background-color: #1d2021;
+  color: @accent;
+  font-size: 14px;
+  padding: 0 7px;
+  margin: 0;
+  border-radius: 0;
+  min-height: 20px;
+}
+
+#workspaces button label {
+  font-size: 14px;
+}
+
+#workspaces button.empty {
+  color: @muted;
+}
+
+#workspaces button:hover {
+  background: @box;
+  color: @fg;
+}
+
+#workspaces button.active {
+  background-color: #504945;
+  color: @accent;
+}
+
+/* Window */
+
+#window {
+  color: @fg;
+  font-size: 13px;
+  margin: 0 8px;
+}
+
+/* System modules */
 
 #pulseaudio,
 #network,
@@ -17,90 +65,65 @@ window#waybar {
 #battery,
 #power-profiles-daemon,
 #custom-power {
-  font-family: "Symbols Nerd Font Mono", "Iosevka Nerd Font Mono", monospace;
+  font-family: "Symbols Nerd Font Mono",
+               "Iosevka Nerd Font Mono", monospace;
 }
-#workspaces {
-  background-color: @box;
-}
-#window {
+
+#pulseaudio,
+#network,
+#bluetooth,
+#battery,
+#power-profiles-daemon {
   color: @fg;
-  font-size: 16px;
-  margin: 8px 0;
+  font-size: 14px;
+  padding: 0 5px;
+  margin: 0;
+  min-height: 20px;
 }
-#workspaces button {
-  background-color: #1d2021;
-  color: @accent;
-  font-size: 22px;
-  padding: 12px 0;
-  border-radius: 0;
-  transition: none;
-}
-#workspaces button label {
-  font-size: 18px;
-}
-#workspaces button.empty {
-  color: @muted;
-}
-#workspaces button:hover {
-  background: @box;
+
+/* Language */
+
+#language {
+  font-size: 14px;
+  font-weight: 800;
   color: @fg;
+  padding: 0 5px;
+  margin: 0;
+  min-height: 20px;
 }
-#workspaces button.active {
-  background-color: #504945;
-  color: @accent;
-}
-#tray {
-  border-radius: 0;
-  padding: 10px 0px;
-  /* margin: 6px 8px; */
-}
+
+/* Clock */
 
 #clock {
   font-weight: 700;
   color: @fg;
-  font-size: 19px;
-  margin: 8px 0 8px 0;
+  font-size: 14px;
+  padding: 0 6px;
+  margin: 0;
+  min-height: 20px;
 }
-#quick {
-  background: @box;
+
+/* Tray */
+
+#tray {
   border-radius: 0;
-  /* margin: 6px 8px; */
-  padding: 10px 12px;
+  padding: 0 5px;
+  margin: 0;
+  min-height: 20px;
 }
-#pulseaudio,
-#network,
-#bluetooth,
-#battery {
-  color: @fg;
-  font-size: 18px;
-  padding: 6px 0;
-}
-#language {
-  font-size: 19px;
-  font-weight: 800;
-  color: @fg;
-  padding: 2px 0;
-  margin: 2px 0 6px 0;
-}
-/* #battery.warning {
-  color: @warning;
-}
-#battery.critical {
-  color: @critical;
-} */
+
+/* Power */
+
 #custom-power {
   color: @critical;
-  font-size: 22px;
-  margin: 8px 14px 14px 14px;
-  padding: 6px 0;
+  font-size: 16px;
+  padding: 0 5px;
+  margin: 0;
+  min-height: 20px;
 }
+
 #custom-power:hover {
   background: @critical;
   color: @bg;
-  border-radius: 50;
-}
-#power-profiles-daemon {
-  color: @fg;
-  font-size: 20px;
-  padding: 6px 0;
+  border-radius: 50%;
 }

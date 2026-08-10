@@ -1,42 +1,176 @@
+//{
+//  "layer": "top",
+//  //"position": "left",
+//  "position": "top",
+//  "margin-top": 0,
+//  "margin-bottom": 0,
+//  "margin-left": 0,
+//  "spacing": 0,
+//  //"width": 50,
+//  "height": 20,
+//  "modules-left": ["hyprland/workspaces"],
+//  "modules-center": ["hyprland/window"],
+//  "modules-right": [
+//    "tray",
+//    "custom/separator",
+//    "clock",
+//    "group/quick"
+//    // "custom/power",
+//  ],
+//  "hyprland/workspaces": {
+//      "format": "{id}",
+//      "persistent-workspaces": {
+//          "1": "1",
+//          "2": "2",
+//          "3": "3",
+//          "4": "4",
+//          "5": "5"
+//      }
+//  },
+//  "hyprland/window": {
+//    "format": "{class}",
+//    "max-length": 30,
+//    "rotate": 90,
+//    "separate-outputs": true
+//  },
+//  "tray": {
+//    "icon-size": 24,
+//    "spacing": 6,
+//  },
+//  "clock": {
+//    "format": "{:%H\n%M}",
+//    "tooltip-format": "<tt>{calendar}</tt>",
+//    "calendar": {
+//      "format": {
+//        "today": "<u>{}</u>"
+//      }
+//    }
+//  },
+//  "group/quick": {
+//    "orientation": "vertical",
+//    "modules": [
+//      "hyprland/language",
+//      // "pulseaudio",
+//      "network",
+//      "bluetooth",
+//      "power-profiles-daemon",
+//      "battery"
+//    ],
+//  },
+//  "pulseaudio": {
+//    "format": "{icon}",
+//    "format-muted": "\uf6a9",
+//    "format-icons": {
+//      "default": ["\uf026", "\uf027", "\uf028"],
+//    },
+//    "on-click": "pavucontrol",
+//    "tooltip-format": "{volume}%",
+//  },
+//  "hyprland/language": {
+//    "format": "{}",
+//    "format-us": "en",
+//    "format-en": "en",
+//    "format-ru": "ru",
+//  },
+//  "network": {
+//    "format-wifi": "\uf1eb",
+//    "format-ethernet": "\uf0e8",
+//    "format-disconnected": "\uf127",
+//    "tooltip-format-wifi": "{essid} ({signalStrength}%)",
+//    "on-click": "kitty --class=wifi-tui -e impala",
+//  },
+//  "bluetooth": {
+//    "format": "\udb80\udcaf",
+//    "format-off": "\udb80\udcb2",
+//    "format-disabled": "\udb80\udcb2",
+//    "tooltip-format": "{status}",
+//    "on-click": "kitty --class=bt-tui -e bluetui",
+//  },
+//  "battery": {
+//    "interval": 30,
+//    "states": {
+//        "warning": 30,
+//        "critical": 15
+//    },
+//    "format": "{icon}",
+//    "tooltip-format-discharging": "Discharging\n{capacity}% {power} w",
+//    "tooltip-format-charging": "Charging\n{capacity}% {power} w",
+//    "tooltip-format-plugged": "Plugged in\n{capacity}% {power} w",
+//    "tooltip-format-full": "{capacity}%",
+//    "format-not-charging": "",
+//    "tooltip-format-not-charging": "Charged\n{capacity}% {power} w",
+//    "format-charging": "",
+//    "format-plugged": "",
+//    "format-icons": ["", "", "", ""]
+//  },
+//
+//  "power-profiles-daemon": {
+//    "format": "{icon}",
+//    "tooltip-format": "Profile: {profile}\nDriver: {driver}",
+//    "tooltip": true,
+//    "format-icons": {
+//        "power-saver": "󰾆",
+//        "balanced": "󰾅",
+//        "performance": "󰓅"
+//    }
+//  },
+//  "custom/power": {
+//    "format": "\uf011",
+//    "tooltip": false,
+//    "on-click": "~/.config/waybar/scripts/power.sh"
+//  },
+//}
+
 {
   "layer": "top",
-  "position": "left",
+  "position": "top",
+
   "margin-top": 0,
   "margin-bottom": 0,
   "margin-left": 0,
+
   "spacing": 0,
-  "width": 50,
-  "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["hyprland/window"],
+  "height": 26,
+
+  "modules-left": [
+    "hyprland/workspaces"
+  ],
+
+  "modules-center": [
+    "hyprland/window"
+  ],
+
   "modules-right": [
     "tray",
     "custom/separator",
     "clock",
     "group/quick"
-    // "custom/power",
   ],
+
   "hyprland/workspaces": {
-      "format": "{id}",
-      "persistent-workspaces": {
-          "1": "1",
-          "2": "2",
-          "3": "3",
-          "4": "4",
-          "5": "5"
-      }
+    "format": "{id}",
+    "persistent-workspaces": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5"
+    }
   },
+
   "hyprland/window": {
     "format": "{class}",
     "max-length": 30,
-    "rotate": 90,
     "separate-outputs": true
   },
+
   "tray": {
-    "icon-size": 24,
-    "spacing": 6,
+    "icon-size": 16,
+    "spacing": 2
   },
+
   "clock": {
-    "format": "{:%H\n%M}",
+    "format": "{:%H:%M}",
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "format": {
@@ -44,51 +178,60 @@
       }
     }
   },
+
   "group/quick": {
-    "orientation": "vertical",
+    "orientation": "horizontal",
     "modules": [
       "hyprland/language",
-      // "pulseaudio",
       "network",
       "bluetooth",
-      // "power-profiles-daemon",
+      "power-profiles-daemon",
       "battery"
-    ],
+    ]
   },
+
   "pulseaudio": {
     "format": "{icon}",
     "format-muted": "\uf6a9",
     "format-icons": {
-      "default": ["\uf026", "\uf027", "\uf028"],
+      "default": [
+        "\uf026",
+        "\uf027",
+        "\uf028"
+      ]
     },
     "on-click": "pavucontrol",
-    "tooltip-format": "{volume}%",
+    "tooltip-format": "{volume}%"
   },
+
   "hyprland/language": {
     "format": "{}",
     "format-us": "en",
     "format-en": "en",
-    "format-ru": "ru",
+    "format-ru": "ru"
   },
+
   "network": {
     "format-wifi": "\uf1eb",
     "format-ethernet": "\uf0e8",
     "format-disconnected": "\uf127",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-    "on-click": "kitty --class=wifi-tui -e impala",
+    "on-click": "kitty --class=wifi-tui -e impala"
   },
+
   "bluetooth": {
     "format": "\udb80\udcaf",
     "format-off": "\udb80\udcb2",
     "format-disabled": "\udb80\udcb2",
     "tooltip-format": "{status}",
-    "on-click": "kitty --class=bt-tui -e bluetui",
+    "on-click": "kitty --class=bt-tui -e bluetui"
   },
+
   "battery": {
     "interval": 30,
     "states": {
-        "warning": 30,
-        "critical": 15
+      "warning": 30,
+      "critical": 15
     },
     "format": "{icon}",
     "tooltip-format-discharging": "Discharging\n{capacity}% {power} w",
@@ -99,7 +242,12 @@
     "tooltip-format-not-charging": "Charged\n{capacity}% {power} w",
     "format-charging": "",
     "format-plugged": "",
-    "format-icons": ["", "", "", ""]
+    "format-icons": [
+      "",
+      "",
+      "",
+      ""
+    ]
   },
 
   "power-profiles-daemon": {
@@ -107,14 +255,15 @@
     "tooltip-format": "Profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-        "power-saver": "󰾆",
-        "balanced": "󰾅",
-        "performance": "󰓅"
+      "power-saver": "󰾆",
+      "balanced": "󰾅",
+      "performance": "󰓅"
     }
   },
+
   "custom/power": {
     "format": "\uf011",
     "tooltip": false,
     "on-click": "~/.config/waybar/scripts/power.sh"
-  },
+  }
 }
