@@ -1,9 +1,9 @@
 @import "colors.css";
 
 * {
-  font-family: "Iosevka", "JetBrains Nerd Font Mono", "Maple Mono NF",
-               "Iosevka Nerd Font Mono", monospace;
+  font-family: "Iosevka", "JetBrains Nerd Font Mono", "Maple Mono NF", monospace;
   font-size: 14px;
+  font-weight: 600;
   min-height: 0;
   border: none;
 }
@@ -64,15 +64,18 @@ window#waybar {
 #bluetooth,
 #battery,
 #power-profiles-daemon,
+#language,
+#custom-cpu_temp,
 #custom-power {
-  font-family: "Symbols Nerd Font Mono",
-               "Iosevka Nerd Font Mono", monospace;
+  font-family: "Iosevka", monospace;
 }
 
 #pulseaudio,
 #network,
 #bluetooth,
+#language,
 #battery,
+#custom-cpu_temp,
 #power-profiles-daemon {
   color: @fg;
   font-size: 14px;
@@ -84,18 +87,12 @@ window#waybar {
 /* Language */
 
 #language {
-  font-size: 14px;
-  font-weight: 800;
-  color: @fg;
-  padding: 0 5px;
-  margin: 0;
-  min-height: 20px;
+  min-width: 86px;
 }
 
 /* Clock */
 
 #clock {
-  font-weight: 700;
   color: @fg;
   font-size: 14px;
   padding: 0 6px;

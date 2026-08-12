@@ -136,16 +136,34 @@
     "hyprland/workspaces"
   ],
 
-  "modules-center": [
-    "hyprland/window"
+  "modules-right": [
+	"hyprland/language",
+	"custom/separator",
+	"network",
+	"custom/separator",
+	"bluetooth",
+	"custom/separator",
+	"pulseaudio",
+	"custom/separator",
+	"custom/cpu_temp",
+	"custom/separator",
+	"power-profiles-daemon",
+	"custom/separator",
+	"battery",
+	"custom/separator",
+	"clock",
+	"tray"
   ],
 
-  "modules-right": [
-    "tray",
-    "custom/separator",
-    "clock",
-    "group/quick"
-  ],
+  "custom/separator": {
+	"format": "|",
+	"tooltip": false
+  },
+
+  "custom/cpu_temp": {
+    "exec": "awk '{printf \"CPU: %.0f°C\", $1/1000}' /sys/class/hwmon/hwmon5/temp1_input",
+    "interval": 5
+  },
 
   "hyprland/workspaces": {
     "format": "{id}",
@@ -158,19 +176,14 @@
     }
   },
 
-  "hyprland/window": {
-    "format": "{class}",
-    "max-length": 30,
-    "separate-outputs": true
-  },
-
   "tray": {
     "icon-size": 16,
     "spacing": 2
   },
 
   "clock": {
-    "format": "{:%H:%M}",
+    "format": "{:%d:%m:%Y %H:%M:%S}",
+	"interval": 5,
     "tooltip-format": "<tt>{calendar}</tt>",
     "calendar": {
       "format": {
@@ -179,20 +192,9 @@
     }
   },
 
-  "group/quick": {
-    "orientation": "horizontal",
-    "modules": [
-      "hyprland/language",
-      "network",
-      "bluetooth",
-      "power-profiles-daemon",
-      "battery"
-    ]
-  },
-
   "pulseaudio": {
-    "format": "{icon}",
-    "format-muted": "\uf6a9",
+    "format": "Audio: {volume}",
+    "format-muted": "Audio: m",
     "format-icons": {
       "default": [
         "\uf026",
@@ -205,24 +207,25 @@
   },
 
   "hyprland/language": {
-    "format": "{}",
-    "format-us": "en",
-    "format-en": "en",
-    "format-ru": "ru"
+    "format": "Language: {}",
+	"format-us": "en",
+	"format-en": "en",
+	"format-ru": "ru",
   },
 
   "network": {
-    "format-wifi": "\uf1eb",
+    "format-wifi": "Wifi: {essid}",
     "format-ethernet": "\uf0e8",
-    "format-disconnected": "\uf127",
+    "format-disconnected": "Wifi: disconnected",
     "tooltip-format-wifi": "{essid} ({signalStrength}%)",
-    "on-click": "kitty --class=wifi-tui -e impala"
+    "on-click": "kitty --class=wifi-tui -e impala",
+	"interval": 2
   },
 
   "bluetooth": {
-    "format": "\udb80\udcaf",
-    "format-off": "\udb80\udcb2",
-    "format-disabled": "\udb80\udcb2",
+    "format": "Bluetooth: {status}",
+    "format-off": "Bluetooth: no devices",
+    "format-disabled": "Bluetooth: disconnected",
     "tooltip-format": "{status}",
     "on-click": "kitty --class=bt-tui -e bluetui"
   },
@@ -233,7 +236,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}",
+    "format": "Battery: {capacity}%",
     "tooltip-format-discharging": "Discharging\n{capacity}% {power} w",
     "tooltip-format-charging": "Charging\n{capacity}% {power} w",
     "tooltip-format-plugged": "Plugged in\n{capacity}% {power} w",
@@ -251,13 +254,13 @@
   },
 
   "power-profiles-daemon": {
-    "format": "{icon}",
+    "format": "Power profile: {icon}",
     "tooltip-format": "Profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
-      "power-saver": "󰾆",
-      "balanced": "󰾅",
-      "performance": "󰓅"
+      "power-saver": "power-saver",
+      "balanced": "balanced",
+      "performance": "performance"
     }
   },
 
