@@ -9,7 +9,7 @@
 }
 
 window#waybar {
-  background-color: #282828;
+  background-color: #181818;
   border-bottom: 1px solid #383633;
   min-height: 20px;
 }
@@ -44,8 +44,8 @@ window#waybar {
   color: @fg;
 }
 
-#workspaces button.active {
-  background-color: #504945;
+#workspaces button.focused {
+  background-color: #295072;
   color: @accent;
 }
 

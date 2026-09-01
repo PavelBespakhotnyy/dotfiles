@@ -1,0 +1,226 @@
+# Sway configuration
+# Migrated from Hyprland
+
+set $mod Mod4
+set $terminal kitty
+set $fileManager thunar
+set $browser firefox
+set $editor codium
+
+# Autostart
+
+exec waybar
+exec awww-daemon
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec swaync
+
+exec swayidle -w timeout 1200 'loginctl lock-session' before-sleep 'loginctl lock-session'
+
+exec autotiling
+
+# Environment
+
+set $XCURSOR_SIZE 24
+
+# Input
+
+input type:keyboard {
+    xkb_layout us,ru
+    xkb_options grp:alt_shift_toggle
+}
+
+input type:touchpad {
+    natural_scroll enabled
+}
+
+input type:pointer {
+    accel_profile flat
+    pointer_accel 0.32
+}
+
+# Monitor
+
+output DP-2 mode 1920x1080@144Hz position 0 0 scale 1
+
+# Appearance
+
+gaps inner 0
+gaps outer 0
+
+default_border pixel 2
+
+client.focused #434A42 #434A42 #FFFFFF #434A42 #434A42
+client.unfocused #2D2D2D #2D2D2D #AAAAAA #2D2D2D #2D2D2D
+client.focused_inactive #2D2D2D #2D2D2D #AAAAAA #2D2D2D #2D2D2D
+client.urgent #555555 #555555 #FFFFFF #555555 #555555
+
+# Layout
+
+workspace_layout tabbed
+
+# H J K L
+# Physical keycodes from wev:
+# H = 43
+# J = 44
+# K = 45
+# L = 46
+
+bindcode $mod+Shift+43 layout splith
+bindcode $mod+Shift+44 layout splitv
+bindcode $mod+Shift+45 layout stacking
+bindcode $mod+Shift+46 layout tabbed
+
+# Applications
+
+# Enter = 36
+bindcode $mod+36 exec $terminal
+
+# Q = 24
+bindcode $mod+24 kill
+
+# E = 26
+bindcode $mod+26 exec $fileManager
+
+# Alt + Space
+bindcode $mod+Mod1+65 floating toggle
+
+# N = 57
+bindcode $mod+57 exec swaync-client -t -sw
+
+# W = 25
+bindcode $mod+25 exec $browser
+
+# C = 54
+bindcode $mod+54 exec $editor
+
+# Space = 65
+bindcode $mod+65 exec rofi -show drun -theme ~/.config/rofi/launcher.rasi
+
+# V = 55
+bindcode $mod+55 exec sh -c 'cliphist list | rofi -dmenu -p "" -theme ~/.config/rofi/clipboard.rasi | cliphist decode | wl-copy'
+
+# Shift + Space
+bindcode $mod+Shift+65 exec pkill waybar || waybar
+
+# Workspaces
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Number row:
+# 1=10 2=11 3=12 4=13 5=14
+# 6=15 7=16 8=17 9=18 0=19
+
+bindcode $mod+10 workspace $ws1
+bindcode $mod+11 workspace $ws2
+bindcode $mod+12 workspace $ws3
+bindcode $mod+13 workspace $ws4
+bindcode $mod+14 workspace $ws5
+bindcode $mod+15 workspace $ws6
+bindcode $mod+16 workspace $ws7
+bindcode $mod+17 workspace $ws8
+bindcode $mod+18 workspace $ws9
+bindcode $mod+19 workspace $ws10
+
+bindcode $mod+Shift+10 move container to workspace $ws1
+bindcode $mod+Shift+11 move container to workspace $ws2
+bindcode $mod+Shift+12 move container to workspace $ws3
+bindcode $mod+Shift+13 move container to workspace $ws4
+bindcode $mod+Shift+14 move container to workspace $ws5
+bindcode $mod+Shift+15 move container to workspace $ws6
+bindcode $mod+Shift+16 move container to workspace $ws7
+bindcode $mod+Shift+17 move container to workspace $ws8
+bindcode $mod+Shift+18 move container to workspace $ws9
+bindcode $mod+Shift+19 move container to workspace $ws10
+
+# Focus
+
+# Left = 113
+# Right = 114
+# Up = 111
+# Down = 116
+
+bindcode $mod+113 focus left
+bindcode $mod+114 focus right
+bindcode $mod+111 focus up
+bindcode $mod+116 focus down
+
+# Move containers
+
+bindcode $mod+Shift+113 move left
+bindcode $mod+Shift+114 move right
+bindcode $mod+Shift+111 move up
+bindcode $mod+Shift+116 move down
+
+# Resize
+
+# - = 20
+# = = 21
+
+bindcode $mod+20 resize shrink width 10 px
+bindcode $mod+21 resize grow width 10 px
+bindcode $mod+Shift+20 resize shrink height 10 px
+bindcode $mod+Shift+21 resize grow height 10 px
+
+# Fullscreen
+
+# F = 41
+bindcode $mod+41 fullscreen toggle
+
+# Scratchpad
+
+# S = 39
+bindcode $mod+39 scratchpad show
+bindcode $mod+Shift+39 move scratchpad
+
+# Screenshots
+
+# Print = 107
+bindcode $mod+107 exec sh -c 'grim -g "$(slurp)" - | swappy -f -'
+
+# Media keys
+
+# These are physical XF86 keys and therefore independent of keyboard layout.
+
+bindcode --locked 123 exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+bindcode --locked 122 exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindcode --locked 121 exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+bindcode --locked 124 exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+
+bindcode --locked 232 exec brightnessctl -e4 -n2 set 5%+
+bindcode --locked 233 exec brightnessctl -e4 -n2 set 5%-
+
+bindcode --locked 171 exec playerctl next
+bindcode --locked 172 exec playerctl play-pause
+bindcode --locked 173 exec playerctl play-pause
+bindcode --locked 174 exec playerctl previous
+
+# Mouse
+
+floating_modifier $mod normal
+
+# TUI windows
+
+for_window [class="wifi-tui"] floating enable, resize set 1200 800, move position center
+for_window [class="bt-tui"] floating enable, resize set 1200 800, move position center
+
+# XWayland video bridge
+
+for_window [class="xwaylandvideobridge"] no_focus opacity 0.0
+
+# Lock
+
+bindsym $mod+l exec swaylock
+
+# Exit to sddm
+
+bindsym $mod+Control+Mod1+e exec swaymsg exit
